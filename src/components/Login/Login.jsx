@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './Login.css'
 
 function Login (props) {
   const [formData, setFormData] = useState({
@@ -8,17 +9,20 @@ function Login (props) {
 
 
   return (
-    <div>
-      <div class="mb-3 red">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+    <>
+    <div class="login-form">
+      <h4>Login</h4>
+      <div class="space">
+      <label htmlFor="email">Username</label>
+      <input type="text" name="email" />
+      </div>
+      <div class="space">
+      <label htmlFor="password">Password</label>
+      <input type="password" name="password" />
+      </div>
+      <button>Enter</button>
     </div>
-    <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      <button type="button" class="btn btn-primary">Base class</button>
-    </div>
-    </div>
+    </>
   )
 }
 
