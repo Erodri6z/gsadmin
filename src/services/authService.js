@@ -1,6 +1,6 @@
 import * as tokenService from  "./tokenService"
 
-const BASE_URL = `${process.env.SERVER_URL}/profiles/`
+const BASE_URL = `${import.meta.env.BACK_END_SERVER_URL}/profiles`
 
 
 async function login(credentials) {
@@ -33,4 +33,4 @@ async function logout() {
 }
 
 
-export { login }
+export { login, getUser, logout }

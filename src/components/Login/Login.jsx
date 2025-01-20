@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Link, useNavigate } from 'react-router-dom'
+
 import './Login.css'
 import * as authService from '../../services/authService'
 
@@ -17,6 +19,7 @@ function Login (props) {
     e.preventDefault()
     try {
       await authService.login(formData)
+      props.handleSignupOrLogin() 
     } catch (err) {
       console.log("This aint it")
     }
