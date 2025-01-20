@@ -3,7 +3,7 @@ import './Login.css'
 
 function Login (props) {
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   })
 
@@ -21,17 +21,30 @@ function Login (props) {
     <>
     <div class="login-form">
       <form onSubmit={handleSubmit}>
-      <h3>Login</h3>
-      <div class="space">
-
-      <label htmlFor="email" class="space" >Username</label>
-      <input type="text" name="email" />
-      </div>
-      <div class="space">
-      <label htmlFor="password" class="space" >Password</label>
-      <input type="password" name="password" />
-      </div>
-      <button>Enter</button>
+        <h3>Login</h3>
+        <div class="space">
+          <label htmlFor="username" class="space" >Username</label>
+          <input 
+            type="username" 
+            name="username" 
+            placeholder="Enter your username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div class="space">
+          <label htmlFor="password" class="space" >Password</label>
+          <input 
+            type="password" 
+            name="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button>Enter</button>
       </form>
     </div>
     </>
