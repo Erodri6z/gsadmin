@@ -24,5 +24,13 @@ async function login(credentials) {
   }
 }
 
+async function getUser() {
+  return tokenService.getUserFromToken
+}
+
+async function logout() {
+  tokenService.removeToken()
+}
+
 
 export { login }

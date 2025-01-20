@@ -1,5 +1,6 @@
 import { useState } from "react"
 import './Login.css'
+import * as authService from '../../services/authService'
 
 function Login (props) {
   const [formData, setFormData] = useState({
@@ -14,6 +15,11 @@ function Login (props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      await authService.login(formData)
+    } catch (err) {
+      console.log("This aint it")
+    }
   }
 
 
