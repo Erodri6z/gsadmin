@@ -11,13 +11,13 @@ function Login (props) {
   return (
     <>
     <div class="login-form">
-      <h4>Login</h4>
+      <h3>Login</h3>
       <div class="space">
-      <label htmlFor="email">Username</label>
+      <label htmlFor="email" class="space" >Username</label>
       <input type="text" name="email" />
       </div>
       <div class="space">
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password" class="space" >Password</label>
       <input type="password" name="password" />
       </div>
       <button>Enter</button>
