@@ -1,21 +1,24 @@
 import * as tokenService from  "./tokenService"
 
-const BASE_URL = `${import.meta.env.BACK_END_SERVER_URL}/profiles`
+const BASE_URL = "http://localhost:5047"
 
 
-async function login(credentials) {
+async function login(formData) {
+  // console.log(JSON.stringify(formData))
   try {
-    const res = await fetch (`${BASE_URL}/login`, {
+    const res = await fetch(`${BASE_URL}/profiles/login`, {
       method: "POST",
       headers: {
-        'Content-Type' : "application/json"
+        'Content-Type' : 'application/json'
       },
-      body: JSON.stringify(credentials)
+      body: JSON.stringify(formData),
     })
     const json = await res.json()
+    console.log(json)
     if (json.token) {
       tokenService.setToken(json.token)
     }
+    console.log(json)
     if (json.error) {
       throw new Error(json.err)
     }

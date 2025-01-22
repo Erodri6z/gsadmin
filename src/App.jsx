@@ -7,6 +7,7 @@ import Login from './components/Login/Login.jsx'
 function App() {
   const [user, setUser] = useState(authService.getUser())
 
+  console.log(user)
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
@@ -17,7 +18,7 @@ function App() {
       <p className="read-the-docs">
         If you do not know what this is youre in the wrong place.
       </p>
-      <Login handleSignupOrLogin={handleSignupOrLogin} />
+      <Login user={user} handleSignupOrLogin={handleSignupOrLogin} />
     </>
   )
 }
