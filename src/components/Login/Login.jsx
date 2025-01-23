@@ -19,11 +19,7 @@ function Login (props) {
     e.preventDefault()
     try {
       await authService.login(formData)
-      console.log("this is reached")
-      props.handleSignupOrLogin() 
-      console.log("this is also reached")
-
-      // Navigate('/')
+      props.handleSignupOrLogin()
     } catch (err) {
       console.log(err)
     }

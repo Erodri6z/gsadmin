@@ -16,7 +16,6 @@ async function login(formData) {
 
     if (json.token) {
       tokenService.setToken(json.token)
-      console.log(json.token)
     }
 
     if (json.error) {
