@@ -17,10 +17,13 @@ function App() {
 
   return (
     <>
-      <p className="read-the-docs">
-        If you do not know what this is youre in the wrong place.
-      </p>
-      <Login user={user} handleSignupOrLogin={handleSignupOrLogin} />
+    {!user?
+      <><p className="read-the-docs">
+          If you do not know what this is youre in the wrong place.
+        </p><Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
+    :
+    <h1>logged in</h1>
+    }
     </>
   )
 }
