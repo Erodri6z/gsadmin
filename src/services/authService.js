@@ -4,7 +4,6 @@ const BASE_URL = "http://localhost:5047"
 
 
 async function login(formData) {
-  // console.log(JSON.stringify(formData))
   try {
     const res = await fetch(`${BASE_URL}/profiles/login`, {
       method: "POST",
@@ -14,11 +13,12 @@ async function login(formData) {
       body: JSON.stringify(formData),
     })
     const json = await res.json()
-    console.log(json)
+
     if (json.token) {
       tokenService.setToken(json.token)
+      console.log(json.token)
     }
-    console.log(json)
+
     if (json.error) {
       throw new Error(json.err)
     }
@@ -27,11 +27,11 @@ async function login(formData) {
   }
 }
 
-async function getUser() {
-  return tokenService.getUserFromToken
+function getUser() {
+  return tokenService.getUserFromToken()
 }
 
-async function logout() {
+function logout() {
   tokenService.removeToken()
 }
 
