@@ -4,11 +4,12 @@ import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
 import * as drinksService from './services/drinksService.js'
 import Login from './components/Login/Login.jsx'
-import jwtDecode from 'jwt-decode'
+import Drinks from './components/Drinks/Drinks.jsx'
+// import jwtDecode from 'jwt-decode'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
-  const [drinks, setDrinks] = useState({})
+  const [drinks, setDrinks] = useState([])
 
   useEffect(() => {
     const fetchDrinks = async () => {
@@ -32,7 +33,10 @@ function App() {
           If you do not know what this is youre in the wrong place.
         </p><Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
     :
+    <>
     <h1>logged in</h1>
+    <Drinks drinks={drinks} />
+    </>
     }
     </>
   )
