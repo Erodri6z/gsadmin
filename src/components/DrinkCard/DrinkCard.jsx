@@ -1,12 +1,17 @@
+import { Link } from "react-router-dom"
+
+
 const DrinksCard = (props) => {
-  const drinks = props.cocktails 
+  const drink = props.cocktails 
 
   return (
     <>
     <div>
-      <h4>{drinks.name}</h4>
+      <Link to="/drink" key={drink.id} state={{ drink }}>
+      <h4>{drink.name}</h4>
+      </Link>
     </div>
-    </>
+    </>  
   )
 }
 

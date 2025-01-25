@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Route, Routes, useNavigate } from 'react-router';
 import './App.css'
 import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
@@ -23,21 +24,30 @@ function App() {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
-    console.log("auth service get user reached")
   }
 
   return (
     <>
-    {!user?
-      <><p className="read-the-docs">
-          If you do not know what this is youre in the wrong place.
-        </p><Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
-    :
-    <>
-    <h3>logged in</h3>
-    <Drinks drinks={drinks} />
-    </>
+    <Routes>
+    <Route 
+    path = "/"
+    element={
+      <>
+      {!user?
+        <><p className="read-the-docs">
+            If you do not know what this is youre in the wrong place.
+          </p><Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
+      :
+      <>
+      <h3>logged in</h3>
+      <Drinks drinks={drinks} />
+      </>
+      }
+      </>
     }
+    />
+    
+    </Routes>
     </>
   )
 }
