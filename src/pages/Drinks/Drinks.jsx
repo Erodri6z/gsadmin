@@ -7,14 +7,14 @@ const Drinks = (props) => {
 
   return(
     <>
-    <div>
-      <h2>The Drinks</h2>
+    <div className=''>
+      <h1>The Drinks</h1>
       {cocktails.map(c => 
-        <h3>{c.name}</h3>
+        <div>
+          <h3>{c.name}</h3>
+        </div>
       )}
-      <div>
       
-      </div>
     </div>
     </>
   )

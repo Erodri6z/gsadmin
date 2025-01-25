@@ -4,7 +4,7 @@ import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
 import * as drinksService from './services/drinksService.js'
 import Login from './components/Login/Login.jsx'
-import Drinks from './components/Drinks/Drinks.jsx'
+import Drinks from './pages/Drinks/Drinks.jsx'
 // import jwtDecode from 'jwt-decode'
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         </p><Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
     :
     <>
-    <h1>logged in</h1>
+    <h3>logged in</h3>
     <Drinks drinks={drinks} />
     </>
     }
