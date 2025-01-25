@@ -4,10 +4,10 @@ const DrinksCard = (props) => {
   return (
     <>
     <div>
-      <h4>drinks.name</h4>
+      <h4>{drinks.name}</h4>
     </div>
     </>
   )
 }
 
-export default drinks
+export default DrinksCard

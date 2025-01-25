@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import DrinksCard from "../../components/DrinkCard/DrinkCard"
 
 
 const Drinks = (props) => {
@@ -10,9 +11,7 @@ const Drinks = (props) => {
     <div className=''>
       <h1>The Drinks</h1>
       {cocktails.map(c => 
-        <div>
-          <h3>{c.name}</h3>
-        </div>
+        <DrinksCard cocktails={c} />
       )}
       
     </div>
