@@ -2,11 +2,21 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
+import * as drinksService from './services/drinksService.js'
 import Login from './components/Login/Login.jsx'
 import jwtDecode from 'jwt-decode'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
+  const [drinks, setDrinks] = useState({})
+
+  useEffect(() => {
+    const fetchDrinks = async () => {
+      const drinks = await drinksService.GetDrinks()
+      setDrinks(drinks)
+    }
+    fetchDrinks()
+  }, [])
 
   console.log(user)
 
