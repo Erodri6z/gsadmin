@@ -1,4 +1,5 @@
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"    
+import './DrinksView.css'
 
 const DrinksView =  () => {
   const location = useLocation()
@@ -15,11 +16,19 @@ const DrinksView =  () => {
           <h4>Recommended In : {thisDrink.recommendedGlasses.map(m => m + " ")}</h4>
           <h4>Garnish: {thisDrink.garnish.map(m => m + " ")}</h4>
       </div>
-      <div>
-      <p>{thisDrink.ingredients.map(c => c + " ")}</p>
-      <p>{thisDrink.measurementsOz.map(m => m + " ")}</p>
-      <p>{thisDrink.bitters}</p>
+      <div class="ingredients-div">
+        <div class="ingredients">
+          {thisDrink.ingredients.map(c => 
+            <p>{c}</p>
+          )} 
+        </div>
+        <div class="ingredients">
+          {thisDrink.measurementsOz.map(m => 
+            <p>{m}</p>
+          )}
+        </div>
       </div>
+      <p>{thisDrink.bitters}</p>
       <p>Vibe: {thisDrink.vibe}</p>
     
     </div>
