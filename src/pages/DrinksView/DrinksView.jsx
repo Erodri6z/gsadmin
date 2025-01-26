@@ -10,6 +10,11 @@ const DrinksView =  () => {
     <>
     <div>
       <h1>{thisDrink.name}</h1>
+      {thisDrink.image?
+      <img src={thisDrink.image} alt="drink-image" />
+      :
+      <p>no image</p>
+      }
       <div>
           <h2>Main Spirit: {thisDrink.mainSpirit}</h2>
           <h4>Method: {thisDrink.method.map(m => m + " ")}</h4>
