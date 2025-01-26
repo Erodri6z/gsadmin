@@ -5,6 +5,7 @@ import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
 import * as drinksService from './services/drinksService.js'
 import Login from './components/Login/Login.jsx'
+import Nav from './components/Nav/Nav.jsx';
 import Drinks from './pages/Drinks/Drinks.jsx'
 import DrinksView from './pages/DrinksView/DrinksView.jsx';
 // import jwtDecode from 'jwt-decode'
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+    <Nav />
     <Routes>
     <Route 
     path = "/"
