@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes} from 'react-router';
+import { Navigate, Route, Routes} from 'react-router';
 import './App.css'
 import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
@@ -21,6 +21,13 @@ function App() {
     }
     fetchDrinks()
   }, [])
+
+  const handleDeleteDrink = async (drinkId) => {
+    const deletedDrink = await drinksService.DeleteDrink(drinkId)
+    const newDrinkArray = drinks.filter(drink => drink.id !== deletedDrink.id)
+    setDrinks(newDrinkArray)
+    Navigate(["/"])
+  }
 
   console.log(user)
 

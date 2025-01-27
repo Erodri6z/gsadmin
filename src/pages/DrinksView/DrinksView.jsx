@@ -10,6 +10,7 @@ const DrinksView =  () => {
     <>
     <div>
       <h1>{thisDrink.name}</h1>
+      <h1>{thisDrink.id}</h1>
       {thisDrink.image?
       <img src={thisDrink.image} alt="drink-image" />
       :
@@ -41,7 +42,7 @@ const DrinksView =  () => {
       )}
       <div class="drink-btns">
         <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => }>Delete</button>
       </div>
     </div>
     </>
