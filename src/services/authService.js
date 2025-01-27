@@ -13,6 +13,7 @@ async function login(formData) {
       body: JSON.stringify(formData),
     })
     const json = await res.json()
+    console.log(json)
 
     if (json.token) {
       tokenService.setToken(json.token)

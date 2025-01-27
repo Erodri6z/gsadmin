@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes, useNavigate } from 'react-router';
+import { Route, Routes} from 'react-router';
 import './App.css'
 import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-    <Nav />
+    <Nav user={user} />
     <Routes>
     <Route 
     path = "/"
@@ -39,10 +39,10 @@ function App() {
       {!user?
         <><p className="read-the-docs">
             If you do not know what this is youre in the wrong place.
-          </p><Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
+          </p>
+          <Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
       :
       <>
-      <h3>logged in</h3>
       <Drinks drinks={drinks} />
       </>
       }
