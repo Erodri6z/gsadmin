@@ -11,7 +11,7 @@ const Drinks = (props) => {
     <div className=''>
       <h1>The Drinks</h1>
       {cocktails.map(c => 
-        <DrinksCard cocktails={c} />
+        <DrinksCard cocktails={c}  key={c}/>
       )}
       
     </div>

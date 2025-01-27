@@ -1,5 +1,6 @@
+import React from 'react';
 import { useEffect, useState } from 'react'
-import { Navigate, Route, Routes} from 'react-router';
+import { useNavigate, Route, Routes} from 'react-router';
 import './App.css'
 import './components/Login/Login.jsx'
 import * as authService from './services/authService.js'
@@ -13,6 +14,7 @@ import DrinksView from './pages/DrinksView/DrinksView.jsx';
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const [drinks, setDrinks] = useState([])
+  // const navigate = useNavigate()
 
   useEffect(() => {
     const fetchDrinks = async () => {
@@ -26,7 +28,6 @@ function App() {
     const deletedDrink = await drinksService.DeleteDrink(drinkId)
     const newDrinkArray = drinks.filter(drink => drink.id !== deletedDrink.id)
     setDrinks(newDrinkArray)
-    Navigate(["/"])
   }
 
   console.log(user)
@@ -59,7 +60,7 @@ function App() {
     <Route
     path='/drink'
     element={
-      <DrinksView />
+      <DrinksView handleDeleteDrink={handleDeleteDrink} />
     }
     />
     

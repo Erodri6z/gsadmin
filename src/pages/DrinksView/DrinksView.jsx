@@ -1,10 +1,18 @@
-import { useLocation } from "react-router-dom"    
+import { useLocation, useNavigate } from "react-router-dom"    
 import './DrinksView.css'
 
-const DrinksView =  () => {
+const DrinksView = (props) => {
   const location = useLocation()
   const thisDrink = location.state.drink
   console.log(location.state.drink.name)
+  const navigate = useNavigate()
+
+
+  const del = (id) => {
+    props.handleDeleteDrink(id)
+    console.log('this worked and we should be in /')
+    navigate("/")
+  }
 
   return (
     <>
@@ -42,7 +50,7 @@ const DrinksView =  () => {
       )}
       <div class="drink-btns">
         <button>Edit</button>
-        <button onClick={() => }>Delete</button>
+        <button onClick={() => del(thisDrink.id)}>Delete</button>
       </div>
     </div>
     </>

@@ -19,7 +19,7 @@ async function DeleteDrink(drinkId) {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
-      }
+      },
     })
     return await res.json()
   } catch (err) {
