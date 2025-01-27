@@ -35,7 +35,14 @@ const DrinksView =  () => {
       </div>
       <p>{thisDrink.bitters}</p>
       <p>Vibe: {thisDrink.vibe}</p>
-    
+      <p>Notes :</p>
+      {thisDrink.notes.map(n =>
+        <p>{n}</p>
+      )}
+      <div class="drink-btns">
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
     </div>
     </>
   )
