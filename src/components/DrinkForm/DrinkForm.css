@@ -1,0 +1,9 @@
+.drink-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-entry{
+  display: flex;
+  justify-content: space-between;
+}
