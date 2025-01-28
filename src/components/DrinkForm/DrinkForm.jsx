@@ -38,11 +38,16 @@ const DrinkForm = () => {
       <form class="drink-form" autoComplete="off">
         <div class="form-entry">
           <label>Name</label>
-          <input type="text" name="name" /> 
+          <input 
+            type="text" 
+            name="name" 
+            onChange={handleChange}/> 
         </div>
         <div class="form-entry">
           <label>Main Spirit</label>
-          <select name="mainSpirit">
+          <select 
+            name="mainSpirit"
+            onChange={handleChange}>
             <option value="">Pick One</option>
             <option value="Whiskey">Whiskey</option>
             <option value="Vodka">Vodka</option>
@@ -54,47 +59,95 @@ const DrinkForm = () => {
         </div>
         <div class="form-entry">
           <label>Image</label>
-          <input type="file" />
+          <input 
+            type="file" 
+            name="image" 
+            onChange={handleChange} />
         </div>
         <div class="form-entry">
           <label>Ingredients</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="ingredients"
+            onChange={handleChange}/>
         </div>
         <div class="form-entry">
           <label>Measurements</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="measurementOz"/>
         </div>
         <div class="form-entry">
           <label>Bitters</label>
-          <input type="text" autoComplete="off" />
+          <input 
+            type="text" 
+            autoComplete="off" 
+            name="bitters"
+            onChange={handleChange}/>
         </div>
         <div class="form-entry">
           <label>Garnisn Options</label>
-          <input type="text" autoComplete="off" />
+          <input 
+            type="text" 
+            autoComplete="off" 
+            name="garnish"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Color</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="color"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Recommended Glass</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="recommendedGlass"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Notes</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="notes"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Method</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="method"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Credit</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="credit"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Vibe</label>
-          <input type="text" autoComplete="off"/>
+          <input 
+            type="text" 
+            autoComplete="off"
+            name="vibe"
+            onClick={handleChange}/>
         </div>
         <button>Submit</button>
       </form>
