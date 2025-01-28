@@ -1,6 +1,36 @@
 import "./DrinkForm.css"
+import { useState } from "react"
 
 const DrinkForm = () => {
+  const [drinkData, setDrinkData] = useState({
+    name: "",
+    mainSpirit: "",
+    image: "",
+    ingredients: "",
+    measurementOz: "",
+    bitters: "",
+    color: "",
+    recommendedGlasses: "",
+    notes: "",
+    method: "",
+    credit: "",
+    vibe: ""
+  })
+
+  const handleChange = (e) => {
+    setDrinkData({...drinkData,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    try{
+      // Leaving this blank until I set up the drink services
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <>
     <div>
