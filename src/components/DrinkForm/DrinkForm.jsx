@@ -7,3 +7,5 @@ const DrinkForm = () => {
     </>
   )
 }
+
+export default DrinkForm
