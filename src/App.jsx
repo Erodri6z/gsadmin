@@ -16,10 +16,11 @@ function App() {
   const [drinks, setDrinks] = useState([])
   // const navigate = useNavigate()
 
+  //TODO: add a way to have this update everytime state is updated without it becoming a infinite loop 
   useEffect(() => {
     const fetchDrinks = async () => {
-      const drinks = await drinksService.GetDrinks()
-      setDrinks(drinks)
+      const drinkCollection = await drinksService.GetDrinks()
+      setDrinks(drinkCollection)
     }
     fetchDrinks()
   }, [])
@@ -45,10 +46,8 @@ function App() {
     element={
       <>
       {!user?
-        <><p className="read-the-docs">
-            If you do not know what this is youre in the wrong place.
-          </p>
-          <Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
+        <>
+        <Login user={user} handleSignupOrLogin={handleSignupOrLogin} /></>
       :
       <>
       <Drinks drinks={drinks} />
