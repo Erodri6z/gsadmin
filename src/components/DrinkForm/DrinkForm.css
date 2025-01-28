@@ -1,9 +1,12 @@
 .drink-form{
   display: flex;
+  margin: auto;
   flex-direction: column;
+  max-width: 30%;
 }
 
 .form-entry{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }

@@ -1,10 +1,11 @@
 import "./DrinkForm.css"
+
 const DrinkForm = () => {
   return (
     <>
     <div>
       <h2>Drink form</h2>
-      <form class="drink-form">
+      <form class="drink-form" autoComplete="off">
         <div class="form-entry">
           <label>Name</label>
           <input type="text" name="name" /> 
@@ -27,43 +28,43 @@ const DrinkForm = () => {
         </div>
         <div class="form-entry">
           <label>Ingredients</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Measurements</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Bitters</label>
-          <input type="text" />
+          <input type="text" autoComplete="off" />
         </div>
         <div class="form-entry">
           <label>Garnisn Options</label>
-          <input type="text" />
+          <input type="text" autoComplete="off" />
         </div>
         <div class="form-entry">
           <label>Color</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Recommended Glass</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Notes</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Method</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Credit</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <div class="form-entry">
           <label>Vibe</label>
-          <input type="text" />
+          <input type="text" autoComplete="off"/>
         </div>
         <button>Submit</button>
       </form>
