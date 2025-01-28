@@ -17,13 +17,7 @@ const DrinkForm = () => {
     vibe: ""
   })
   console.log(drinkData)
-
-  const handleChange = (e) => {
-    setDrinkData({...drinkData,
-      [e.target.name] : e.target.value
-    })
-  }
-
+  
   const toList = (str) => {
     return str.split(",")
   }
@@ -31,6 +25,22 @@ const DrinkForm = () => {
   const toIntList = (str) => {
     return parseInt(str).split(",")
   }
+  
+  const handleChange = (e) => {
+    setDrinkData({...drinkData,
+      [e.target.name] : e.target.value
+    })
+
+    console.log(e.target.name)
+    if (e.target.name === "ingredients"){
+      const value = toList(e.target.value)
+      setDrinkData({...drinkData,
+        [e.target.name] : value
+      })
+    }
+  }
+
+
 
   const handleSubmit = (e) => {
     try{
