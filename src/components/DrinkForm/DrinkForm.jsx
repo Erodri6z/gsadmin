@@ -16,11 +16,20 @@ const DrinkForm = () => {
     credit: "",
     vibe: ""
   })
+  console.log(drinkData)
 
   const handleChange = (e) => {
     setDrinkData({...drinkData,
       [e.target.name] : e.target.value
     })
+  }
+
+  const toList = (str) => {
+    return str.split(",")
+  }
+
+  const toIntList = (str) => {
+    return parseInt(str).split(",")
   }
 
   const handleSubmit = (e) => {
