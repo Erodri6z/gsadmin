@@ -9,6 +9,7 @@ import Login from './components/Login/Login.jsx'
 import Nav from './components/Nav/Nav.jsx';
 import Drinks from './pages/Drinks/Drinks.jsx'
 import DrinksView from './pages/DrinksView/DrinksView.jsx';
+import NewDrink from './pages/NewDrink/NewDrink.jsx';
 // import jwtDecode from 'jwt-decode'
 
 function App() {
@@ -62,7 +63,12 @@ function App() {
       <DrinksView handleDeleteDrink={handleDeleteDrink} />
     }
     />
-    
+    <Route 
+    path='/newDrink'
+    element={
+      <NewDrink />
+    }
+    />
     </Routes>
     </>
   )
