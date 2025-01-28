@@ -13,6 +13,22 @@ async function GetDrinks()  {
   }
 }
 
+async function PostDrink(drinkData) {
+  try{
+    const res = await fetch(`${BASE_URL}/drinks`. {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(drinkData)
+    })
+    return await res.json()
+    
+  } catch (err) {
+    throw err
+  }
+}
+
 async function DeleteDrink(drinkId) {
   try{
     const res = await fetch(`${BASE_URL}/drinks/${drinkId}`,{
