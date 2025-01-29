@@ -32,6 +32,11 @@ function App() {
     setDrinks(newDrinkArray)
   }
 
+  const handlePostDrink = async (drinkData) => {
+    const newDrink = await drinksService.PostDrink(drinkData)
+    setDrinks([...drinks, newDrink])
+  }
+
   console.log(user)
 
   const handleSignupOrLogin = () => {
@@ -66,7 +71,7 @@ function App() {
     <Route 
     path='/newDrink'
     element={
-      <NewDrink />
+      <NewDrink handlePostDrink={handlePostDrink}/>
     }
     />
     </Routes>

@@ -46,4 +46,4 @@ async function DeleteDrink(drinkId) {
 
 
 
-export { GetDrinks, DeleteDrink }
+export { GetDrinks, DeleteDrink, PostDrink }

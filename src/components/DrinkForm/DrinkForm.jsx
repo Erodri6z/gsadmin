@@ -1,7 +1,7 @@
 import "./DrinkForm.css"
 import { useState } from "react"
 
-const DrinkForm = () => {
+const DrinkForm = (props) => {
   const [drinkData, setDrinkData] = useState({
     name: "",
     mainSpirit: "",
@@ -23,7 +23,7 @@ const DrinkForm = () => {
   }
 
   const toIntList = (str) => {
-    return str.split(",").map(n => parseInt(n))
+    return str.split(",").map(n => parseFloat(n))
   }
 
   const handleChange = (e) => {
@@ -57,7 +57,7 @@ const DrinkForm = () => {
 
   const handleSubmit = (e) => {
     try{
-      // Leaving this blank until I set up the drink services
+      props.handlePostDrink(drinkData)
     } catch (err) {
       console.log(err)
     }
@@ -67,7 +67,7 @@ const DrinkForm = () => {
     <>
     <div>
       <h2>Drink form</h2>
-      <form class="drink-form" autoComplete="off">
+      <form class="drink-form" autoComplete="off" onSubmit={handleSubmit}>
         <div class="form-entry">
           <label>Name</label>
           <input 
