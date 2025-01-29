@@ -7,7 +7,7 @@ const DrinkForm = () => {
     mainSpirit: "",
     image: "",
     ingredients: "",
-    measurementOz: "",
+    measurementsOz: "",
     bitters: "",
     color: "",
     recommendedGlasses: "",
@@ -23,17 +23,30 @@ const DrinkForm = () => {
   }
 
   const toIntList = (str) => {
-    return parseInt(str).split(",")
+    return str.split(",").map(n => parseInt(n))
   }
-  
+
   const handleChange = (e) => {
     setDrinkData({...drinkData,
       [e.target.name] : e.target.value
     })
 
-    console.log(e.target.name)
-    if (e.target.name === "ingredients"){
+    if (
+      e.target.name === "ingredients" || 
+      e.target.name === "bitters" ||
+      e.target.name === "notes" ||
+      e.target.name === "garnish" ||
+      e.target.name === "recommendedGlasses" || 
+      e.target.name === "method"){
       const value = toList(e.target.value)
+      setDrinkData({...drinkData,
+        [e.target.name] : value
+      })
+    }
+
+    if (e.target.name === "measurementsOz"){
+      console.log(e.target.name)
+      const value = toIntList(e.target.value)
       setDrinkData({...drinkData,
         [e.target.name] : value
       })
@@ -96,7 +109,9 @@ const DrinkForm = () => {
           <input 
             type="text" 
             autoComplete="off"
-            name="measurementOz"/>
+            name="measurementsOz"
+            onChange={handleChange}
+          />
         </div>
         <div class="form-entry">
           <label>Bitters</label>
