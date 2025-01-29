@@ -43,7 +43,17 @@ async function DeleteDrink(drinkId) {
   }
 }
 
+async function addPhoto(photoData, drinkId) {
+  const res = await fetch(`${BASE_URL}/${drinkId}/add-photo`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: photoData
+  })
+  return await res.json()
+}
 
 
 
-export { GetDrinks, DeleteDrink, PostDrink }
+export { GetDrinks, DeleteDrink, PostDrink , addPhoto}

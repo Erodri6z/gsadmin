@@ -16,6 +16,7 @@ const DrinkForm = (props) => {
     credit: "",
     vibe: ""
   })
+  const [photoData, setPhotoData] = useState({})
   console.log(drinkData)
   
   const toList = (str) => {
@@ -29,8 +30,7 @@ const DrinkForm = (props) => {
   const handleChange = (e) => {
     setDrinkData({...drinkData,
       [e.target.name] : e.target.value
-    })
-
+    })           
     if (
       e.target.name === "ingredients" || 
       e.target.name === "bitters" ||
@@ -56,11 +56,25 @@ const DrinkForm = (props) => {
 
 
   const handleSubmit = (e) => {
-    try{
-      props.handlePostDrink(drinkData)
+    e.preventDefault(); // Prevent default form submission
+  
+    try {
+      // const formData = new FormData(); // Use lowercase 'formData'
+  
+  
+      // if (photoData.photo) {
+      //   drinkData.append("image", photoData.photo); // Append the file
+      // }
+
+      console.log(drinkData)
+      props.handlePostDrink(drinkData, photoData.photo); // Send formData to your API function
     } catch (err) {
-      console.log(err)
+      console.log("Error submitting form:", err);
     }
+  };
+
+  const handleChangePhoto = (e) => {
+    setPhotoData({ photo: e.target.files[0]})
   }
 
   return (
@@ -94,7 +108,7 @@ const DrinkForm = (props) => {
           <input 
             type="file" 
             name="image" 
-            onChange={handleChange} />
+            onChange={handleChangePhoto} />
         </div>
         <div class="form-entry">
           <label>Ingredients</label>
@@ -144,7 +158,7 @@ const DrinkForm = (props) => {
           <input 
             type="text" 
             autoComplete="off"
-            name="recommendedGlass"
+            name="recommendedGlasses"
             onChange={handleChange}
           />
         </div>

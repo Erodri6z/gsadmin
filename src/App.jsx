@@ -32,9 +32,18 @@ function App() {
     setDrinks(newDrinkArray)
   }
 
-  const handlePostDrink = async (drinkData) => {
+  const handlePostDrink = async (drinkData, image) => {
     const newDrink = await drinksService.PostDrink(drinkData)
+    if (image) {
+      newDrink.image = await drinkPhotoHelper(image, newDrink.id)
+    }
     setDrinks([...drinks, newDrink])
+  }
+
+  const drinkPhotoHelper = async (photo, id) => {
+    const photoData = new FormData()
+    photoData.append('photo', photo)
+    return await drinksService.addPhoto(photoData, id)
   }
 
   console.log(user)
