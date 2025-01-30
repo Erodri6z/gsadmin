@@ -15,10 +15,12 @@ async function GetDrinks()  {
 
 async function PostDrink(drinkData) {
   try{
+    console.log(drinkData)
     const res = await fetch(`${BASE_URL}/drinks`, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${tokenService.getToken()}`
+        "Authorization": `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(drinkData)
     })
@@ -56,4 +58,4 @@ async function addPhoto(photoData, drinkId) {
 
 
 
-export { GetDrinks, DeleteDrink, PostDrink , addPhoto}
+export { GetDrinks, DeleteDrink, PostDrink, addPhoto}

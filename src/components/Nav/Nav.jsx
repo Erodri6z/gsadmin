@@ -1,19 +1,21 @@
 import './Nav.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Nav = (props) => {
-  const user = props.user
 
   const navigate = useNavigate()
+
   return (
     <>
       <nav class="nav">
-        {user?
+        {props.user?
         <>
         <div class='nav-div'>
-          <button onClick={navigate('/newDrink')}>New Drink</button>
+          <button onClick={() => navigate('/newDrink')}>New Drink</button>
+          <Link to={"/"}>
           <h2>G-S ADMIN</h2>
+          </Link>
           <button>Log out</button>
         </div>
         </>

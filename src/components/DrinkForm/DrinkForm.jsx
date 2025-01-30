@@ -5,7 +5,6 @@ const DrinkForm = (props) => {
   const [drinkData, setDrinkData] = useState({
     name: "",
     mainSpirit: "",
-    image: "",
     ingredients: "",
     measurementsOz: "",
     bitters: "",
@@ -56,25 +55,17 @@ const DrinkForm = (props) => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
-  
+    e.preventDefault()
     try {
-      // const formData = new FormData(); // Use lowercase 'formData'
-  
-  
-      // if (photoData.photo) {
-      //   drinkData.append("image", photoData.photo); // Append the file
-      // }
-
-      console.log(drinkData)
-      props.handlePostDrink(drinkData, photoData.photo); // Send formData to your API function
+      props.handlePostDrink(drinkData, photoData)
+      console.log(drinkData, photoData)
     } catch (err) {
-      console.log("Error submitting form:", err);
+      console.log("Error submitting form:", err)
     }
   };
 
   const handleChangePhoto = (e) => {
-    setPhotoData({ photo: e.target.files[0]})
+    setPhotoData({ "image": e.target.files[0]})
   }
 
   return (

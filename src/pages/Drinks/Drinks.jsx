@@ -11,7 +11,9 @@ const Drinks = (props) => {
     <div className=''>
       <h1>The Drinks</h1>
       {cocktails.map(c => 
-        <DrinksCard cocktails={c}  key={c}/>
+      <div key={c.id}>
+        <DrinksCard cocktails={c}  key={c.id}/>
+      </div>
       )}
       
     </div>

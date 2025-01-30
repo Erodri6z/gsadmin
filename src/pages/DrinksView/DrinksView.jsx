@@ -33,12 +33,12 @@ const DrinksView = (props) => {
       <div class="ingredients-div">
         <div class="ingredients">
           {thisDrink.ingredients.map(c => 
-            <p>{c}</p>
+            <p key={c}>{c}</p>
           )} 
         </div>
         <div class="ingredients">
           {thisDrink.measurementsOz.map(m => 
-            <p>{m}</p>
+            <p key={m}>{m}</p>
           )}
         </div>
       </div>
@@ -46,7 +46,7 @@ const DrinksView = (props) => {
       <p>Vibe: {thisDrink.vibe}</p>
       <p>Notes :</p>
       {thisDrink.notes.map(n =>
-        <p>{n}</p>
+        <p key={n}>{n}</p>
       )}
       <div class="drink-btns">
         <button>Edit</button>

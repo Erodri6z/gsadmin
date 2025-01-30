@@ -15,7 +15,9 @@ import NewDrink from './pages/NewDrink/NewDrink.jsx';
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const [drinks, setDrinks] = useState([])
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
+
+  console.log(drinks)
 
   //TODO: add a way to have this update everytime state is updated without it becoming a infinite loop 
   useEffect(() => {
@@ -33,17 +35,24 @@ function App() {
   }
 
   const handlePostDrink = async (drinkData, image) => {
+    console.log(drinkData)
     const newDrink = await drinksService.PostDrink(drinkData)
+    setDrinks([...drinks, newDrink])
     if (image) {
       newDrink.image = await drinkPhotoHelper(image, newDrink.id)
     }
-    setDrinks([...drinks, newDrink])
   }
 
-  const drinkPhotoHelper = async (photo, id) => {
+  const drinkPhotoHelper = async (image, id) => {
     const photoData = new FormData()
-    photoData.append('photo', photo)
+    photoData.append('image', image)
     return await drinksService.addPhoto(photoData, id)
+  }
+
+  const handleLogout = () => {
+    authService.logout()
+    setUser(null)
+    navigate("/")
   }
 
   console.log(user)
