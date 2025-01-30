@@ -62,7 +62,7 @@ const DrinkForm = (props) => {
     } catch (err) {
       console.log("Error submitting form:", err)
     }
-  };
+  }
 
   const handleChangePhoto = (e) => {
     setPhotoData({ "image": e.target.files[0]})

@@ -16,7 +16,7 @@ const Nav = (props) => {
           <Link to={"/"}>
           <h2>G-S ADMIN</h2>
           </Link>
-          <button>Log out</button>
+          <button onClick={() => props.handleLogout()}>Log out</button>
         </div>
         </>
         :
