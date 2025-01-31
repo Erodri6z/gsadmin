@@ -65,6 +65,18 @@ function App() {
     navigate("/")
   }
 
+  handleUpdateDrink = async (drinkData, image) => {
+    const updatedDrink = await drinksService.updateDrink(drinkData)
+    const newDrinkArray = drinks.map(
+      drink => drink.id === updatedDrink.id ?
+      updatedDrink: drink
+    )
+    if (image) {
+      drinkData.image = await drinkPhotoHelper(image, drinkData.id)
+    }
+    setDrinks(newDrinkArray)
+    navigate("/")
+  }
   console.log(user)
 
   const handleSignupOrLogin = () => {
