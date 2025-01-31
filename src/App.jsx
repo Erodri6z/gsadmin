@@ -39,13 +39,21 @@ function App() {
     const newDrink = await drinksService.PostDrink(drinkData)
     setDrinks([...drinks, newDrink])
     if (image) {
+      console.log("image detected", newDrink)
+    
       newDrink.image = await drinkPhotoHelper(image, newDrink.id)
     }
+    navigate("/")
   }
 
   const drinkPhotoHelper = async (image, id) => {
     const photoData = new FormData()
-    photoData.append('image', image)
+    console.log("Received Image:", image)
+    if (image && image.file) {
+        photoData.append("image", image.file)
+    } else {
+        photoData.append("image", image)
+    }
     return await drinksService.addPhoto(photoData, id)
   }
 

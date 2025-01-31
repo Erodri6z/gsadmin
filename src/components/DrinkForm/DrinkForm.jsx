@@ -58,14 +58,13 @@ const DrinkForm = (props) => {
     e.preventDefault()
     try {
       props.handlePostDrink(drinkData, photoData)
-      console.log(drinkData, photoData)
     } catch (err) {
       console.log("Error submitting form:", err)
     }
   }
 
   const handleChangePhoto = (e) => {
-    setPhotoData({ "image": e.target.files[0]})
+    setPhotoData(e.target.files[0])
   }
 
   return (

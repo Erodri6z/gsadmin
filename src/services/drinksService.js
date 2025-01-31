@@ -46,14 +46,18 @@ async function DeleteDrink(drinkId) {
 }
 
 async function addPhoto(photoData, drinkId) {
-  const res = await fetch(`${BASE_URL}/${drinkId}/add-photo`, {
+  console.log("sending", drinkId)
+  console.log(`${BASE_URL}/drinks/image/${drinkId}`)
+  const res = await fetch(`${BASE_URL}/drinks/image/${drinkId}`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
     body: photoData
   })
-  return await res.json()
+  const data = await res.json();
+  console.log("Image uploaded successfully!", data);
+  return data;  
 }
 
 
