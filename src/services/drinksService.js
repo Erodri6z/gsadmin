@@ -34,14 +34,16 @@ async function PostDrink(drinkData) {
 
 async function UpdateDrink(drinkData) {
   try {
+    // console.log(drinkData.id)
     const res = await fetch(`${BASE_URL}/drinks/${drinkData.id}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(drinkData)
+      body: {...drinkData, image: ""}
     })
+    // console.log({...drinkData, image: ""})
     return await res.json()
   } catch (err) {
     throw err

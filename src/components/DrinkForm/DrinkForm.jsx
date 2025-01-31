@@ -13,7 +13,7 @@ const DrinkForm = (props) => {
     notes: "",
     method: "",
     credit: "",
-    vibe: ""
+    vibe: "",
   })
   const [photoData, setPhotoData] = useState({})
   console.log(drinkData)
@@ -29,7 +29,8 @@ const DrinkForm = (props) => {
   const handleChange = (e) => {
     setDrinkData({...drinkData,
       [e.target.name] : e.target.value
-    })           
+    })
+  
     if (
       e.target.name === "ingredients" || 
       e.target.name === "bitters" ||
@@ -44,7 +45,6 @@ const DrinkForm = (props) => {
     }
 
     if (e.target.name === "measurementsOz"){
-      console.log(e.target.name)
       const value = toIntList(e.target.value)
       setDrinkData({...drinkData,
         [e.target.name] : value
@@ -185,7 +185,7 @@ const DrinkForm = (props) => {
             type="text" 
             autoComplete="off"
             name="vibe"
-            onClick={handleChange}/>
+            onChange={handleChange}/>
         </div>
         <button>Submit</button>
       </form>

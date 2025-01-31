@@ -39,12 +39,12 @@ function App() {
   const handlePostDrink = async (drinkData, image) => {
     console.log(drinkData)
     const newDrink = await drinksService.PostDrink(drinkData)
-    setDrinks([...drinks, newDrink])
     if (image) {
       console.log("image detected", newDrink)
-    
+      
       newDrink.image = await drinkPhotoHelper(image, newDrink.id)
     }
+    setDrinks([...drinks, newDrink])
     navigate("/")
   }
 
@@ -65,15 +65,18 @@ function App() {
     navigate("/")
   }
 
-  handleUpdateDrink = async (drinkData, image) => {
+  const handleUpdateDrink = async (drinkData, image) => {
+    console.log(drinkData)
     const updatedDrink = await drinksService.UpdateDrink(drinkData)
+    console.log("updated Drink")
+    if (image) {
+      updatedDrink.image = await drinkPhotoHelper(image, drinkData.id)
+      console.log("image sent")
+    }
     const newDrinkArray = drinks.map(
       drink => drink.id === updatedDrink.id ?
-      updatedDrink: drink
+      updatedDrink : drink
     )
-    if (image) {
-      drinkData.image = await drinkPhotoHelper(image, drinkData.id)
-    }
     setDrinks(newDrinkArray)
     navigate("/")
   }
@@ -117,7 +120,7 @@ function App() {
     <Route 
     path='/drink-edit'
     element={
-      <DrinkEditPage />
+      <DrinkEditPage handleUpdateDrink={handleUpdateDrink} />
     }
 
     />

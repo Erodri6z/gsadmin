@@ -1,9 +1,10 @@
-import { useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+// import { parsePath, useLocation } from "react-router-dom"
 
 const DrinkEdit = (props) => {
   // const location = useLocation()
-  const [drinkData, setDrinkData] = useState(props.drink)
+  const drink = props.drink
+  const [drinkData, setDrinkData] = useState(drink)
   const [photoData, setPhotoData] = useState({})
   
   
@@ -48,7 +49,8 @@ const DrinkEdit = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     try {
-      props.handlePostDrink(drinkData, photoData)
+      console.log(drinkData, photoData)
+      props.handleUpdateDrink(drinkData, photoData)
     } catch (err) {
       console.log("Error submitting form:", err)
     }
@@ -195,7 +197,7 @@ const DrinkEdit = (props) => {
             autoComplete="off"
             name="vibe"
             value={drinkData.vibe}
-            onClick={handleChange}/>
+            onChange={handleChange}/>
         </div>
         <button>Submit</button>
       </form>
