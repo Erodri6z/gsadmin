@@ -31,6 +31,23 @@ async function PostDrink(drinkData) {
   }
 }
 
+
+async function UpdateDrink(drinkData) {
+  try {
+    const res = await fetch(`${BASE_URL}/drinks/${drinkData.id}`, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(drinkData)
+    })
+    return await res.json()
+  } catch (err) {
+    throw err
+  }
+}
+
 async function DeleteDrink(drinkId) {
   try{
     const res = await fetch(`${BASE_URL}/drinks/${drinkId}`,{
@@ -62,4 +79,4 @@ async function addPhoto(photoData, drinkId) {
 
 
 
-export { GetDrinks, DeleteDrink, PostDrink, addPhoto}
+export { GetDrinks, DeleteDrink, PostDrink, UpdateDrink, addPhoto}

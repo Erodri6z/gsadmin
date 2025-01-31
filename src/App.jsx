@@ -66,7 +66,7 @@ function App() {
   }
 
   handleUpdateDrink = async (drinkData, image) => {
-    const updatedDrink = await drinksService.updateDrink(drinkData)
+    const updatedDrink = await drinksService.UpdateDrink(drinkData)
     const newDrinkArray = drinks.map(
       drink => drink.id === updatedDrink.id ?
       updatedDrink: drink
