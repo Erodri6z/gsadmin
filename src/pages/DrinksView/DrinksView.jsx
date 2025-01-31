@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"    
+import { Link } from "react-router-dom"
 import './DrinksView.css'
 
 const DrinksView = (props) => {
@@ -49,7 +50,9 @@ const DrinksView = (props) => {
         <p key={n}>{n}</p>
       )}
       <div class="drink-btns">
-        <button>Edit</button>
+        <Link to="/drink-edit" key={thisDrink.id} state={{ thisDrink }}>
+          <button>Edit</button>
+        </Link>
         <button onClick={() => del(thisDrink.id)}>Delete</button>
       </div>
     </div>

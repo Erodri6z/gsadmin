@@ -10,6 +10,8 @@ import Nav from './components/Nav/Nav.jsx';
 import Drinks from './pages/Drinks/Drinks.jsx'
 import DrinksView from './pages/DrinksView/DrinksView.jsx';
 import NewDrink from './pages/NewDrink/NewDrink.jsx';
+import DrinkEdit from './components/EditForm/EditForm.jsx';
+import DrinkEditPage from './pages/DrinkEdit/DrinkEdit.jsx';
 // import jwtDecode from 'jwt-decode'
 
 function App() {
@@ -99,6 +101,13 @@ function App() {
     element={
       <NewDrink handlePostDrink={handlePostDrink}/>
     }
+    />
+    <Route 
+    path='/drink-edit'
+    element={
+      <DrinkEditPage />
+    }
+
     />
     </Routes>
     </>
