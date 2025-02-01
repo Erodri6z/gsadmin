@@ -6,9 +6,10 @@ const DrinkEdit = (props) => {
   const drink = props.drink
   const [drinkData, setDrinkData] = useState(drink)
   const [photoData, setPhotoData] = useState({})
+  console.log(photoData.name)
+  // console.log(photoData.name? true : false)
   
-  
-  console.log(drinkData)
+  // console.log(props.drinkImg)
   
   const toList = (str) => {
     return str.split(",")
@@ -49,10 +50,17 @@ const DrinkEdit = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     try {
-      console.log(drinkData, photoData)
-      props.handleUpdateDrink(drinkData, photoData)
+      props.handleUpdateDrink(drinkData)
     } catch (err) {
       console.log("Error submitting form:", err)
+    }
+  }
+
+  const handleSubmitImage = () => {
+    try {
+      props.handleUpdateImage(photoData, drinkData)
+    } catch (err) {
+      console.log("Error submitting image:", err)
     }
   }
   
@@ -94,14 +102,7 @@ const DrinkEdit = (props) => {
             <option value="Other">Other</option>
           </select>
         </div>
-        <div class="form-entry">
-          <label>Image</label>
-          <input 
-            type="file" 
-            name="image" 
-            // value={drinkData.image}
-            onChange={handleChangePhoto} />
-        </div>
+      
         <div class="form-entry">
           <label>Ingredients</label>
           <input 
@@ -201,6 +202,19 @@ const DrinkEdit = (props) => {
         </div>
         <button>Submit</button>
       </form>
+      <>
+      <form onSubmit={handleSubmitImage}>
+        <div class="form-entry">
+          <label>Image</label>
+          <input 
+          type="file" 
+          name="image" 
+          // value={drinkData.image}
+          onChange={handleChangePhoto} />
+        </div>
+        <button>Submit</button>
+      </form>
+      </>
     </div>
     </>
   )
