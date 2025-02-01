@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 // import { parsePath, useLocation } from "react-router-dom"
 
 const DrinkEdit = (props) => {
-  // const location = useLocation()
+
   const drink = props.drink
   const [drinkData, setDrinkData] = useState(drink)
-  const [photoData, setPhotoData] = useState({})
-  console.log(photoData.name)
-  // console.log(photoData.name? true : false)
-  
-  // console.log(props.drinkImg)
+
   
   const toList = (str) => {
     return str.split(",")
@@ -56,17 +52,6 @@ const DrinkEdit = (props) => {
     }
   }
 
-  const handleSubmitImage = () => {
-    try {
-      props.handleUpdateImage(photoData, drinkData)
-    } catch (err) {
-      console.log("Error submitting image:", err)
-    }
-  }
-  
-  const handleChangePhoto = (e) => {
-    setPhotoData(e.target.files[0])
-  }
 
   return (
     <>
@@ -202,19 +187,6 @@ const DrinkEdit = (props) => {
         </div>
         <button>Submit</button>
       </form>
-      <>
-      <form onSubmit={handleSubmitImage}>
-        <div class="form-entry">
-          <label>Image</label>
-          <input 
-          type="file" 
-          name="image" 
-          // value={drinkData.image}
-          onChange={handleChangePhoto} />
-        </div>
-        <button>Submit</button>
-      </form>
-      </>
     </div>
     </>
   )

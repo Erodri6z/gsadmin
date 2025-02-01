@@ -6,8 +6,11 @@ const EditPhoto = (props) => {
   // const [drinkData, setDrinkData] = useState(drink)
   const [photoData, setPhotoData] = useState({})
   
-  const handleSubmitImage = () => {
+  const handleSubmitImage = (e) => {
+    e.preventDefault()
     try {
+      console.log(drinkData, photoData)
+      console.log(props)
       props.handleUpdateImage(photoData, drinkData)
     } catch (err) {
       console.log("Error submitting image:", err)

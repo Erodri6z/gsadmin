@@ -10,6 +10,8 @@ const DrinkEditPage = (props) => {
   const drink = location.state.thisDrink
   const { image, ...drinkNoImg } = drink
 
+  console.log(props)
+
   const switchForm = () => {
     drinkSwitch === true?setDrinkSwitch(false):setDrinkSwitch(true)
   }
@@ -24,7 +26,7 @@ const DrinkEditPage = (props) => {
     {drinkSwitch===true?
     <DrinkEdit drink={drinkNoImg} handleUpdateDrink={props.handleUpdateDrink}/>
     :
-    <EditPhoto drink={drink} handleUpdateImage={props.handleUpdateImage}/>
+    <EditPhoto drink={drink} handleUpdateImage={props.handleUpdateImager}/>
     }
     </>
   )
